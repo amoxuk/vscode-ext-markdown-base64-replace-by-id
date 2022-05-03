@@ -3,7 +3,7 @@
 this is markdown ext to replace base64 code by `![][image-id]` and append base64 code to the text's last line.
 the image id is always a timestamp and it is alse appended to the text's last line.
 
-![](show.gif)
+![](https://raw.githubusercontents.com/amoxuk/vscode-ext-markdown-base64-replace-by-id/main/show.gif)
 
 example:
 
