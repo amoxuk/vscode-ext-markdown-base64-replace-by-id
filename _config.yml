@@ -1,1 +1,6 @@
 theme: jekyll-theme-architect
+font:
+  enable: true
+  global:
+    external: true
+    family: Lato
