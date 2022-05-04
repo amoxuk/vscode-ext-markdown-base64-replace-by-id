@@ -1,9 +1,5 @@
-.DS_Store
-npm-debug.log
-Thumbs.db
-node_modules/
-out/
-.vs/
-tsconfig.lsif.json
-*.lsif
-*.db
+dist
+node_modules
+.vscode-test-web/
+*.vsix
+out
