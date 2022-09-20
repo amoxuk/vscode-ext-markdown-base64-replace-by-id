@@ -28,6 +28,57 @@ input some base64 code as after:
 
 
 ```
+## Note!!!
+
+It's easier to use with python clipboard script!!!
+
+```python
+
+## image to base64
+
+## screencap app: snipaste
+
+import base64
+import time
+from io import BytesIO
+from PIL import Image, ImageGrab
+import win32clipboard
+
+def pil():
+    pre = 0
+    while 1:
+        seq = win32clipboard.GetClipboardSequenceNumber()
+        if pre == seq:
+            time.sleep(0.02)
+            continue
+        else:
+            pre = seq
+        # save image
+        try:
+
+            img = ImageGrab.grabclipboard()
+            if isinstance(img, Image.Image):
+                buffer = BytesIO()
+                img.save(buffer, 'jpeg')
+                b64str = base64.b64encode(buffer.getvalue())
+                print(len(b64str))
+                # print(b64str, '\n', end='\r')
+                b64str = f'data:image/*;base64,{b64str.decode()}'
+                # set clipboard
+                win32clipboard.OpenClipboard()
+                win32clipboard.SetClipboardText(b64str)
+                win32clipboard.CloseClipboard()
+                # update seq
+                pre = win32clipboard.GetClipboardSequenceNumber()
+                buffer.close()
+        except:
+            pass
+
+
+if __name__ == '__main__':
+    pil()
+
+```
 
 
 ---
